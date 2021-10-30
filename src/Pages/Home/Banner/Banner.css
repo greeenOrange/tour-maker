@@ -1,0 +1,22 @@
+.banner img{
+    display: flex;
+    height: 522px;
+}
+.banner-caption{
+    /* color:black;
+    position: absolute;
+    top: 240px;
+    left: 0; */
+    transform: translate(-30%, -50%);
+}
+.banner-caption p{
+    width: 350px;
+    margin: auto;
+}
+
+@media screen and (max-width: 668px) {
+    .banner-caption{
+       
+        transform: translate(-10%, -50%);
+    }
+  }

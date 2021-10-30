@@ -1,0 +1,9 @@
+.service-container{
+    display: block;
+}
+.service-info {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    background-color: #d3cdcdef;
+}

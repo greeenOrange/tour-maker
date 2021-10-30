@@ -1,0 +1,92 @@
+[
+    {
+      "id": "1",
+      "name": "Cox's Bazar",
+      "place": "Bangladesh",
+      "img": "https://i.ibb.co/3dh8CJP/longest-sea-beach-in.jpg",
+      "star":4.5,
+      "price": 210,
+      "discription": "Cox's Bazar sea beach is the longest sea beach in the world, 120 km long, having no 2nd instance. The wavy water of Bay of Bengal touches the beach Cox's Bazar, town, southeastern Bangladesh. It is situated along the Bay of Bengal about 60 miles (100 km) south of Chittagong."
+    },
+    {
+      "id": "2",
+      "name": "Bisnakhandi",
+      "place": "Bangladesh",
+      "img": "https://i.ibb.co/tMNs39x/bisnakandi.jpg",
+      "star": 5,
+      "price": 399,
+      "discription": "Bisnakandi is a village situated in Rustompur Union under Guainghat Upazilla. This is where many layers of the Khasi mountain meet at a single point from both sides. Flowing from above is a high fall. Adding to its charm are dark clouds hugging the mountain in the rainy season. And flowing underneath towards Bholaganj is a branch of the Piyain."
+    },
+    {
+      "id": "3",
+      "name": "Lahaina Shores Beach",
+      "place": "United States",
+      "img": "https://i.ibb.co/nMs2gp8/aston-kaanapali-shores.jpg",
+      "star":4,
+      "price": 327,
+      "discription": "Lahaina Shores Beach Resort is a landmark, right in the heart of old town Lahaina – a classic with the incomparable attraction of being right on the uncrowded.Lahaina Shores Beach Resort is a landmark in historic Lahaina town."
+    },
+    {
+      "id": "4",
+      "name": "Fairmont Kea Lani",
+      "place": "United States",
+      "img": "https://i.ibb.co/c8b96vF/sedona.jpg",
+      "star":5,
+      "price": 250,
+      "discription": "Fairmont Kea Lani, Maui ... Imagine an island oasis where bright blue skies, a shimmering golden sand beach and an abundance of tropical blooms, Discover Fairmont Kea Lani Maui Luxury Beach Resort · the villa collection · island culture · wellness · Food & drink · Photos & Videos · Guests and adventure-seekers"
+    },
+    {
+      "id": "5",
+      "name": "Kolkata (Calcutta)",
+      "place": "India",
+      "img": "https://i.ibb.co/YLY86qj/kolkata-calcutta.jpg",
+      "price": 180,
+      "star":5,
+      "discription": "This former British colonial stronghold boasts evidence of over two millennia of habitation, with ornate, architecturally diverse buildings, ranging from crumbing ruins to Victorian treasures. Home to lively festivals and a vibrant artistic community, clamorous markets and packed temples, this city is crowded and polluted, but ultimately invigorating."
+    },
+    {
+      "id": "5",
+      "name": "Mandarmani",
+      "place": "India",
+      "img": "https://i.ibb.co/yWSPFCk/place-5.jpg",
+      "star":4,
+      "price": 233,
+      "discription": "Mandarmani is a seaside resort village in the state of West Bengal, India, and lies in East Midnapore district, at the northern end of the Bay of Bengal. It is one of the largest seaside resorts of West Bengal, fast-developing."
+    },
+    {
+      "id": "7",
+      "name": "Yellowstone National Park",
+      "place": "America",
+      "img": "https://i.ibb.co/sVTqXqL/img4.jpg",
+      "star":3,
+      "price": 342,
+      "discription": "Established in 1872, Yellowstone National Park is a national treasure. Located primarily in Wyoming, the park is so massive that it extends into Montana and Idaho and has five separate entrances. Yellowstone is a real hothead: It contains half of the world's known geothermal features, including geysers, hot springs, and boiling mud pots. The most famous is Old Faithful, a geyser that has reliably erupted for decades."
+    },
+    {
+      "id": "8",
+      "name": "Punta Cana",
+      "place": "Dominican Republic",
+      "img": "https://i.ibb.co/WH3cZ0f/2-mile-stretch-of-beautiful.jpg",
+      "star":5,
+      "price": 10,
+      "discription": "Punta Cana is pure escape, and its pleasures come in many forms. Days here start on postcard-worthy Macao Beach and might end inside of a cave nightclub. And when you’re not soaking up the sun or dancing the night away, all-day indulgence is the name of the game at Punta Cana’s impeccable all-inclusive resorts, from the electrified Hard Rock Punta Cana"
+    },
+    {
+      "id": "9",
+      "name": "Cancun",
+      "place": "Mexico",
+      "img": "https://i.ibb.co/3MChZ4X/maxico.jpg",
+      "star":5,
+      "price": 306,
+      "discription": "“Spring break forever” was once the unofficial Cancun motto, but Mexico’s most famous party town is more than perfect beaches and wild nightclubs. Chic resorts like Nizuc and Atelier Playa Mujeres are upping Cancun’s luxury game, while family-friendly adventures are on offer at Xohimilco by Xcaret and the pyramids of Chichen Itza. Don’t worry, though—if you’re here for a party, Cancun still has what you need."
+    },
+    {
+      "id": "10",
+      "name": "New York City",
+      "place": "New York’s",
+      "img": "https://i.ibb.co/LtMC6C3/newyork.jpg",
+      "star":5,
+      "price": 423,
+      "discription": "The tallest buildings, biggest museums, and best pizza—NYC is a city of superlatives, and it lives up to every one of them. From the dazzling spectacle of Broadway to MoMA’s world-class galleries, the boutiques of SoHo, and the array of restaurants offering cuisines from every corner of the world, there’s a different New York to discover every time you visit."
+    }
+  ]
