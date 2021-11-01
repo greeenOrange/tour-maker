@@ -19,7 +19,7 @@ const AddService = () => {
     }
     return (
          <div>
-      <h2 className="mt-5 text-center text-info">Please Add a Service</h2>
+      <h2 className="mt-5 text-center text-info">Add Services</h2>
       <div className="login-box add-service">
         <div className="event-box border border">
           <div className="login-form ">
@@ -30,12 +30,6 @@ const AddService = () => {
                 <input {...register("img")} placeholder="image url" />
                 <input type="submit" />
             </form>
-            <p className="m-2 mb-2">
-              {/* already have account?{" "} */}
-              <Link to="/login">
-                <span className="text-danger">create account</span>
-              </Link>
-            </p>
           </div>
         </div>
       </div>

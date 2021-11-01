@@ -1,15 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import UseAuth from '../../hooks/UseAuth';
 
 const Booking = () => {
 const {id} = useParams();
-const { register, handleSubmit, reset } = useForm();
+const { register, handleSubmit, reset, formState:{errors}, } = useForm();
 const {user} = UseAuth()
-
+const history = useHistory();
 const [details, setDetails] = useState({})
 
 useEffect(()=>{
@@ -22,12 +22,15 @@ useEffect(()=>{
 },[id])
 
 const onSubmit = data =>{
+  data.status = "pending"
+  delete data._id;
   data.email = user?.email;
     axios.post('http://localhost:5000/order',data)
     .then(res => {
       if(res.data.insertedId){
         alert('successfully added');
         reset();
+        history.push('/home')
     }
     })
     // fetch('http://localhost:5000/order', {
@@ -51,16 +54,21 @@ const onSubmit = data =>{
     <Link className='btn btn-lg btn-outline-dark' to='/'>go Back</Link>
         </div>
       <div className="col-md-6 max-auto">
-      <h2 className="mt-5 text-center text-info">Please Add a Service</h2>
+      <h2 className="mt-5 text-center text-info">Please Place Booking</h2>
       <div className="login-box add-service">
         <div className="event-box border border">
           <div className="login-form ">
           <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("name", { required: true, maxLength: 20 })} placeholder="Name" />
-                <textarea {...register("description")} placeholder="Description" />
-                <input type="number" {...register("price")} placeholder="price" />
-                <input {...register("img")} placeholder="image url" />
+
+                <input {...register("name", { required: true, maxLength: 20 })} placeholder="Name" value={user.displayName} />
+                <input {...register("emalil", { required: true})} placeholder="Email" value={user.email} />
+                <input className='p-2' {...register("address", { required: true})} placeholder="Address"/>
+                <input type="number" {...register("price")} placeholder="price"  value={details?.price}/>
+                <input {...register("phone")} placeholder="phone" />
+                <br />
+                {errors.exampleRequired && <span>This field is required</span>}
                 <input type="submit" />
+
             </form>
             <p className="m-2 mb-2">
               {/* already have account?{" "} */}

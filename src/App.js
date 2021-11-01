@@ -6,7 +6,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Error from './Pages/Error/Error';
 import Login from './Pages/Login/Login';
@@ -17,6 +16,7 @@ import AddService from './AddService/AddService';
 import ManageServices from './Pages/ManageServices/ManageServices';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import MyOrder from './AddService/MyOrder';
+import MyService from './AddService/MyService';
 
 
 function App() {
@@ -38,15 +38,15 @@ function App() {
     <PrivateRoute path='/booking/:id'>
      <Booking></Booking>
     </PrivateRoute>
-    <Route path='/addservice'>
+    <PrivateRoute path='/addservices'>
      <AddService></AddService>
-    </Route>
-    <Route path='/manageservices'>
-     <ManageServices></ManageServices>
-    </Route>
-    <Route path='/order'>
+    </PrivateRoute>
+    <PrivateRoute path='/manageservices'>
+     <MyService></MyService>
+    </PrivateRoute>
+    <PrivateRoute path='/order'>
      <MyOrder></MyOrder>
-    </Route>
+    </PrivateRoute>
     <Route path='*'>
      <Error></Error>
     </Route>
