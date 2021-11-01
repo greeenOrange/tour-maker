@@ -7,11 +7,13 @@ const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     useEffect(()=>{
         fetch('https://sleepy-ocean-28261.herokuapp.com/order')
+        // fetch('http://localhost:5000/order')
         .then(res => res.json())
         .then(data => setOrders(data))
     },[]);
     const handleDelete = id =>{
         const url = `https://sleepy-ocean-28261.herokuapp.com/order/${id}`;
+        // const url = `http://localhost:5000/order/${id}`;
         fetch(url,{
             method: 'DELETE'
         })
