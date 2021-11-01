@@ -15,6 +15,8 @@ import Header from './Pages/Header/Header';
 import Booking from './Pages/Booking/Booking';
 import AddService from './AddService/AddService';
 import ManageServices from './Pages/ManageServices/ManageServices';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import MyOrder from './AddService/MyOrder';
 
 
 function App() {
@@ -33,14 +35,17 @@ function App() {
     <Route path='/login'>
      <Login></Login>
     </Route>
-    <Route path='/booking/:id'>
+    <PrivateRoute path='/booking/:id'>
      <Booking></Booking>
-    </Route>
+    </PrivateRoute>
     <Route path='/addservice'>
      <AddService></AddService>
     </Route>
     <Route path='/manageservices'>
      <ManageServices></ManageServices>
+    </Route>
+    <Route path='/order'>
+     <MyOrder></MyOrder>
     </Route>
     <Route path='*'>
      <Error></Error>
