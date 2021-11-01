@@ -2,14 +2,14 @@ import axios from 'axios';
 import React from 'react';
 import './AddService.css'
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
 
 const AddService = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/services',data)
+        axios.post('https://sleepy-ocean-28261.herokuapp.com/services',data)
+        // axios.post('https://sleepy-ocean-28261.herokuapp.com/services',data)
         .then(res => {
             if(res.data.insertedId){
                 alert('successfully added');
