@@ -11,7 +11,7 @@ const MyOrder = () => {
         .then(data => setOrders(data))
     },[]);
     const handleDelete = id =>{
-        const url = `https://sleepy-ocean-28261.herokuapp.com/${id}`;
+        const url = `https://sleepy-ocean-28261.herokuapp.com/order/${id}`;
         fetch(url,{
             method: 'DELETE'
         })
