@@ -13,7 +13,8 @@ const history = useHistory();
 const [details, setDetails] = useState({})
 
 useEffect(()=>{
-    fetch('http://localhost:5000/services')
+    // fetch('http://localhost:5000/services')
+    fetch('https://sleepy-ocean-28261.herokuapp.com/services')
     .then(res => res.json())
     .then(data => {
         const services = data?.find(service => service._id == id)
@@ -25,7 +26,8 @@ const onSubmit = data =>{
   data.status = "pending"
   delete data._id;
   data.email = user?.email;
-    axios.post('http://localhost:5000/order',data)
+    // axios.post('http://localhost:5000/order',data)
+    axios.post('https://sleepy-ocean-28261.herokuapp.com/order',data)
     .then(res => {
       if(res.data.insertedId){
         alert('successfully added');

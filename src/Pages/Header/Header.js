@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import UseAuth from '../../hooks/UseAuth';
 
 const Header = () => {
-    const {user, LogOut} = UseAuth();  
+    const {user, LogOut} = UseAuth(); 
+     
     return (
         <>
             <Navbar className='menu-bar' variant="light" sticky="top" collapseOnSelect expand="lg" >

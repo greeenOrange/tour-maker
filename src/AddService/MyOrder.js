@@ -2,15 +2,16 @@ import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 
+
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/order')
+        fetch('https://sleepy-ocean-28261.herokuapp.com/order')
         .then(res => res.json())
         .then(data => setOrders(data))
     },[]);
     const handleDelete = id =>{
-        const url = `http://localhost:5000/order/${id}`;
+        const url = `https://sleepy-ocean-28261.herokuapp.com/${id}`;
         fetch(url,{
             method: 'DELETE'
         })
@@ -39,7 +40,7 @@ const MyOrder = () => {
             <>
             <div className='container'>
             <div className="row">
-                <div className="d-flex">
+                <div className="d-flex flex-wrap">
                 {
                 orders.map(order => <div className='col-md-4' key={order?._id}>
                 <Card style={{ width: '18rem' }}>
