@@ -1,16 +1,19 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
+import UseAuth from '../hooks/UseAuth';
 
 
 const MyOrder = () => {
+    const {user} = UseAuth()
     const [orders, setOrders] = useState([]);
     useEffect(()=>{
-        fetch('https://sleepy-ocean-28261.herokuapp.com/order')
-        // fetch('http://localhost:5000/order')
+        fetch(`https://sleepy-ocean-28261.herokuapp.com/order/${user?.email}`)
+        // fetch(`http://localhost:5000/order/${user?.email}`)
         .then(res => res.json())
         .then(data => setOrders(data))
-    },[]);
+    },[user?.email]);
+    
     const handleDelete = id =>{
         const url = `https://sleepy-ocean-28261.herokuapp.com/order/${id}`;
         // const url = `http://localhost:5000/order/${id}`;
@@ -39,19 +42,19 @@ const MyOrder = () => {
                    
                
             } */}
-            <>
+ 
             <div className='container'>
             <div className="row">
                 <div className="d-flex flex-wrap">
                 {
                 orders.map(order => <div className='col-md-4' key={order?._id}>
                 <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={order.img} />
+  <Card.Img variant="top" src={order?.img} />
   <Card.Body>
-    <Card.Title>{order.name}</Card.Title>
+    <Card.Title>{order?.name}</Card.Title>
 
     <Card.Text>
-      {order.price}
+      {order?.price}
     </Card.Text>
     <Button className='primary' variant="primary">Place Order</Button>
     <button onClick={() => handleDelete(order._id)}>Delete</button>    
@@ -62,7 +65,6 @@ const MyOrder = () => {
                 </div>
             </div>
             </div>
-            </>
         </div>
     );
 };

@@ -62,8 +62,8 @@ const onSubmit = data =>{
           <div className="login-form ">
           <form onSubmit={handleSubmit(onSubmit)}>
 
-                <input {...register("name", { required: true, maxLength: 20 })} placeholder="Name" value={user.displayName} />
-                <input {...register("emalil", { required: true})} placeholder="Email" value={user.email} />
+                <input {...register("name", { required: true, maxLength: 20 })} placeholder="Name" value={details.name} />
+                <input {...register("email", { required: true})} placeholder="Email" value={user.email} />
                 <input className='p-2' {...register("address", { required: true})} placeholder="Address"/>
                 <input type="number" {...register("price")} placeholder="price"  value={details?.price}/>
                 <input {...register("phone")} placeholder="phone" />
