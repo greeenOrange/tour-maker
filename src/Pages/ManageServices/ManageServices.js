@@ -1,40 +1,84 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
+
 
 const ManageServices = () => {
-    const [services, setServices] = useState([])
+    const [orders, setOrders] = useState([]);
     useEffect(()=>{
-        // fetch('http://localhost:5000/services')
-        fetch('https://sleepy-ocean-28261.herokuapp.com/services')
+        fetch(`https://sleepy-ocean-28261.herokuapp.com/order`)
+        // fetch(`http://localhost:3000/order/order`)
         .then(res => res.json())
-        .then(data => setServices(data))
+        .then(data => setOrders(data))
     },[]);
-    const handleDelete = id =>{
-        const url = `https://sleepy-ocean-28261.herokuapp.com/services/${id}`;
-    //    const url = `https://sleepy-ocean-28261.herokuapp.com/services/${id}`;
-        fetch(url,{
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data);
-            if(data.deletedCount){
-                alert('successfully Delete')
-                const remainItem = services.filter(service => service._id !== id);
-                setServices(remainItem);
-            }
+    
+    // const handleDelete = id =>{
+    //     // const url = `https://sleepy-ocean-28261.herokuapp.com/order/${id}`;
+    //     const url = `http://localhost:5000/order/${id}`;
+    //     fetch(url,{
+    //         method: 'DELETE'
+    //     })
+    //     .then(res => res.json())
+    //     .then(data =>{
+    //         console.log(data);
+    //         if(data.deletedCount){
+    //             alert('successfully Delete')
+    //             const remainOrder = orders.filter(order => order._id !== id);
+    //             setOrders(remainOrder);
+    //         }
             
-        })
+    //     })
+    // }
+
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure, you want to delete?');
+        if (proceed) {
+            const url = `https://sleepy-ocean-28261.herokuapp.com/order/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully');
+                        const remainingUsers = orders.filter(order => order._id !== id);
+                        setOrders(remainingUsers);
+                    }
+                });
+        }
     }
+
     return (
         <div>
-            <h3>Manage Services</h3>
-            {
-                services.map(service => <div key={service._id}>
-                  <h3>{service.name}</h3>
-                  <h3>{service.place}</h3>
-                  <button onClick={() => handleDelete(service._id)}>Delete</button>     
-                </div>)
-            }
+            <h3>Total Orders {orders.length}</h3> 
+            <div className='container'>
+            <div className="row">
+                <div className="d-flex flex-wrap">
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                        <th>Place</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                        </tr>
+                    </thead>
+             {
+                    orders.map(orders => <tbody
+                        key={orders._id}
+                    ><tr>
+                        <td>{orders.name}</td>
+                        <td>{orders.email}</td>
+                        <td>{orders.phone}</td>
+                        <td>{orders.address}</td>
+                        <button className='btn btn-dark' onClick={() => handleDelete(orders._id)}>Delete</button>
+                        </tr>
+                        </tbody>)
+                }
+                </Table>
+                </div>
+            </div>
+            </div>
         </div>
     );
 };
