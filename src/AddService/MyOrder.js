@@ -1,67 +1,86 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import UseAuth from '../hooks/UseAuth';
+
 
 
 const MyOrder = () => {
     const {user} = UseAuth()
     const [orders, setOrders] = useState([]);
     useEffect(()=>{
-        fetch(`https://sleepy-ocean-28261.herokuapp.com/order/${user?.email}`)
-        // fetch(`http://localhost:5000/order/${user?.email}`)
+        // fetch(`https://sleepy-ocean-28261.herokuapp.com/order/${user?.email}`)
+        fetch(`https://sleepy-ocean-28261.herokuapp.com/order?email=${user.email}`)
         .then(res => res.json())
         .then(data => setOrders(data))
-    },[user?.email]);
+    },[]);
     
-    const handleDelete = id =>{
-        const url = `https://sleepy-ocean-28261.herokuapp.com/order/${id}`;
-        // const url = `http://localhost:5000/order/${id}`;
-        fetch(url,{
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data);
-            if(data.deletedCount){
-                alert('successfully Delete')
-                const remainOrder = orders.filter(order => order._id !== id);
-                setOrders(remainOrder);
-            }
+    // const handleDelete = id =>{
+    //     // const url = `https://sleepy-ocean-28261.herokuapp.com/order/${id}`;
+    //     const url = `http://localhost:5000/order/${id}`;
+    //     fetch(url,{
+    //         method: 'DELETE'
+    //     })
+    //     .then(res => res.json())
+    //     .then(data =>{
+    //         console.log(data);
+    //         if(data.deletedCount){
+    //             alert('successfully Delete')
+    //             const remainOrder = orders.filter(order => order._id !== id);
+    //             setOrders(remainOrder);
+    //         }
             
-        })
+    //     })
+    // }
+
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure, you want to delete?');
+        if (proceed) {
+            const url = `https://sleepy-ocean-28261.herokuapp.com/order/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully');
+                        const remainingUsers = orders.filter(order => order._id !== id);
+                        setOrders(remainingUsers);
+                    }
+                });
+        }
     }
+
     return (
         <div>
-            <h3>My Orders</h3>
-            {/* {
-                
-                  <h3>{order.name}</h3>
-                  <p>{order.price}</p>
-                  <img className='w-25' src={order.img} alt="" />
-                   
-               
-            } */}
- 
+            <h3>Total Orders {orders.length}</h3> 
             <div className='container'>
             <div className="row">
                 <div className="d-flex flex-wrap">
-                {
-                orders.map(order => <div className='col-md-4' key={order?._id}>
-                <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={order?.img} />
-  <Card.Body>
-    <Card.Title>{order?.name}</Card.Title>
-
-    <Card.Text>
-      {order?.price}
-    </Card.Text>
-    <Button className='primary' variant="primary">Place Order</Button>
-    <button onClick={() => handleDelete(order._id)}>Delete</button>    
-  </Card.Body>
-</Card>
- </div>)
-            }
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                        <th>Place</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                        </tr>
+                    </thead>
+             {
+                    orders.map(orders => <tbody
+                        key={orders._id}
+                    ><tr>
+                        <td>{orders.name}</td>
+                        <td>{orders.email}</td>
+                        <td>{orders.phone}</td>
+                        <td>{orders.address}</td>
+                        <button className='btn btn-dark' onClick={() => handleDelete(orders._id)}>Delete</button>
+                        </tr>
+                        </tbody>)
+                }
+                </Table>
                 </div>
             </div>
             </div>

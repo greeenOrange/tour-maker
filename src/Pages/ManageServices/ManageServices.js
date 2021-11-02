@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 const ManageServices = () => {
     const [services, setServices] = useState([])
     useEffect(()=>{
-        // fetch('http://localhost:5000/services')
-        fetch('https://sleepy-ocean-28261.herokuapp.com/services')
+        fetch('http://localhost:5000/services')
+        // fetch('https://sleepy-ocean-28261.herokuapp.com/services')
         .then(res => res.json())
         .then(data => setServices(data))
     },[]);
     const handleDelete = id =>{
-        // const url = `http://localhost:5000/services/${id}`;
-       const url = `https://sleepy-ocean-28261.herokuapp.com/services/${id}`;
+        const url = `https://sleepy-ocean-28261.herokuapp.com/services/${id}`;
+    //    const url = `https://sleepy-ocean-28261.herokuapp.com/services/${id}`;
         fetch(url,{
             method: 'DELETE'
         })
@@ -31,7 +31,6 @@ const ManageServices = () => {
             {
                 services.map(service => <div key={service._id}>
                   <h3>{service.name}</h3>
-                  <h3>{}</h3>
                   <button onClick={() => handleDelete(service._id)}>Delete</button>     
                 </div>)
             }

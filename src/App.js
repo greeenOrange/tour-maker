@@ -13,10 +13,9 @@ import AuthProvider from './Contexts/AuthProvider';
 import Header from './Pages/Header/Header';
 import Booking from './Pages/Booking/Booking';
 import AddService from './AddService/AddService';
-import ManageServices from './Pages/ManageServices/ManageServices';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import MyOrder from './AddService/MyOrder';
-import MyService from './AddService/MyService';
+import ManageServices from './Pages/ManageServices/ManageServices';
 
 
 function App() {
@@ -42,7 +41,7 @@ function App() {
      <AddService></AddService>
     </PrivateRoute>
     <PrivateRoute path='/manageservices'>
-     <MyService></MyService>
+     <ManageServices></ManageServices>
     </PrivateRoute>
     <PrivateRoute path='/order'>
      <MyOrder></MyOrder>
