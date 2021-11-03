@@ -11,24 +11,6 @@ const ManageServices = () => {
         .then(data => setOrders(data))
     },[]);
     
-    // const handleDelete = id =>{
-    //     // const url = `https://sleepy-ocean-28261.herokuapp.com/order/${id}`;
-    //     const url = `http://localhost:5000/order/${id}`;
-    //     fetch(url,{
-    //         method: 'DELETE'
-    //     })
-    //     .then(res => res.json())
-    //     .then(data =>{
-    //         console.log(data);
-    //         if(data.deletedCount){
-    //             alert('successfully Delete')
-    //             const remainOrder = orders.filter(order => order._id !== id);
-    //             setOrders(remainOrder);
-    //         }
-            
-    //     })
-    // }
-
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
@@ -49,10 +31,10 @@ const ManageServices = () => {
 
     return (
         <div>
-            <h3>Total Orders {orders.length}</h3> 
+            <h3>Total Users Orders {orders.length}</h3> 
             <div className='container'>
             <div className="row">
-                <div className="d-flex flex-wrap">
+                <div className="col-md-12 mx-auto">
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>

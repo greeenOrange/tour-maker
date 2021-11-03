@@ -35,14 +35,6 @@ const onSubmit = data =>{
         history.push('/home')
     }
     })
-    // fetch('http://localhost:5000/order', {
-    //   method: "POST",
-    //   headers: { "content-type": "application/json" },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => console.log(result));
-    // console.log(data);
 }
     return (
             <>

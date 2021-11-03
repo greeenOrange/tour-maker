@@ -3,6 +3,7 @@ import React from 'react';
 import './AddService.css'
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { ButtonToolbar } from 'react-bootstrap';
 
 const AddService = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -10,7 +11,7 @@ const AddService = () => {
     const onSubmit = data => {
         console.log(data);
         axios.post('https://sleepy-ocean-28261.herokuapp.com/services',data)
-        // axios.post('https://sleepy-ocean-28261.herokuapp.com/services',data)
+        // axios.post('http://localhost:5000/services/services',data)
         .then(res => {
             if(res.data.insertedId){
                 alert('successfully added');
@@ -36,7 +37,7 @@ const AddService = () => {
             <p className="m-2 mb-2">
               {/* already have account?{" "} */}
               <Link to="/login">
-                <span className="text-danger">create account</span>
+                <button><span className="text-danger">create account</span></button>
               </Link>
             </p>
           </div>
